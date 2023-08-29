@@ -1,0 +1,20 @@
+.main-filters {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 35px 0 25px 0;
+}
+
+.main-filters__label {
+    padding: 0 11px;
+}
+
+.main-filters__selector {
+    width: 150px;
+}
+
+@media screen and (max-width: 599px) {
+    .main-filters__selector {
+        width: 100%;
+    }
+}
