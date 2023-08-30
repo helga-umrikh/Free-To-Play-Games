@@ -1,14 +1,14 @@
-import React, { FC } from 'react'
+import React from 'react'
 import './GameCard.css'
 import { Link } from 'react-router-dom'
 import { Card, Typography } from 'antd'
 import { Row, Col } from 'antd'
-import { ICard } from '../../interfaces'
 
 const { Meta } = Card
 const { Text, Title } = Typography
 
-export const GameCard: FC<IGameCardProps> = ({
+export const GameCard = ({
+    // eslint-disable-next-line react/prop-types
     cardInfo: { id, thumbnail, genre, release_date, title, developer },
 }) => {
     return (
@@ -39,8 +39,4 @@ export const GameCard: FC<IGameCardProps> = ({
             </Col>
         </div>
     )
-}
-
-interface IGameCardProps {
-    cardInfo: ICard
 }

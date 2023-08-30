@@ -1,12 +1,11 @@
 import React from 'react'
 import { GameCard } from '../components/GameCard'
-import { ICard } from '../interfaces'
 
-export const renderCards = (cardsData: ICard[]) => {
+export const renderCards = (cardsData) => {
     const cards = cardsData.map(
         (
-            { id, thumbnail, genre, release_date, title, developer }: ICard,
-            index: number
+            { id, thumbnail, genre, release_date, title, developer },
+            index
         ) => {
             const cardInfo = {
                 id,
