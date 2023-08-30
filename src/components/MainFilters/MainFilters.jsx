@@ -1,9 +1,12 @@
 import React from 'react'
 import './MainFilters.css'
 import { Select, Typography } from 'antd'
+import { useDispatch } from 'react-redux'
+import { filterCardsData } from '../../redux/slices/cardsSlice'
 const { Paragraph } = Typography
 
 export const MainFilters = () => {
+    const dispatch = useDispatch();
     return (
         <div className="main-filters">
             <div>
@@ -19,7 +22,7 @@ export const MainFilters = () => {
                             label: 'All Platforms',
                         },
                         {
-                            value: 'windows',
+                            value: 'pc',
                             label: 'Windows (PC)',
                         },
                         {
@@ -28,6 +31,7 @@ export const MainFilters = () => {
                         },
                     ]}
                     defaultValue="all"
+                    onSelect={value => dispatch(filterCardsData({ value, type: 'platform'}))}
                 ></Select>
             </div>
             <div>
@@ -39,51 +43,52 @@ export const MainFilters = () => {
                     bordered={false}
                     options={[
                         {
-                            value: 'All Genres',
+                            value: '',
                             label: 'All Genres',
                         },
                         {
-                            value: 'MMO',
+                            value: 'mmo',
                             label: 'MMO',
                         },
                         {
-                            value: 'MMORPG',
+                            value: 'mmorpg',
                             label: 'MMORPG',
                         },
                         {
-                            value: 'Shooter',
+                            value: 'shooter',
                             label: 'Shooter',
                         },
                         {
-                            value: 'Strategy',
+                            value: 'strategy',
                             label: 'Strategy',
                         },
                         {
-                            value: 'Moba',
+                            value: 'moba',
                             label: 'Moba',
                         },
                         {
-                            value: 'Card Games',
+                            value: 'card',
                             label: 'Card Games',
                         },
                         {
-                            value: 'Racing',
+                            value: 'racing',
                             label: 'Racing',
                         },
                         {
-                            value: 'Sports',
+                            value: 'sports',
                             label: 'Sports',
                         },
                         {
-                            value: 'Social',
+                            value: 'social',
                             label: 'Social',
                         },
                         {
-                            value: 'Fighting',
+                            value: 'fighting',
                             label: 'Fighting',
                         },
                     ]}
                     defaultValue="All Genres"
+                    onSelect={value => dispatch(filterCardsData({ value, type: 'category'}))}
                 ></Select>
             </div>
             <div>
@@ -95,23 +100,24 @@ export const MainFilters = () => {
                     bordered={false}
                     options={[
                         {
-                            value: 'Relevance',
+                            value: 'relevance',
                             label: 'Relevance',
                         },
                         {
-                            value: 'Popularity',
+                            value: 'popularity',
                             label: 'Popularity',
                         },
                         {
-                            value: 'Release Date',
+                            value: 'release-date',
                             label: 'Release Date',
                         },
                         {
-                            value: 'Alphabetical',
+                            value: 'alphabetical',
                             label: 'Alphabetical',
                         },
                     ]}
                     defaultValue="Relevance"
+                    onSelect={value => dispatch(filterCardsData({ value, type: 'sort-by'}))}
                 ></Select>
             </div>
         </div>

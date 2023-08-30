@@ -10,11 +10,11 @@ import { getCardsData } from '../../api/getCardsData'
 
 export const MainPage = () => {
     const dispatch = useDispatch();
-    useEffect(() => {
-        getCardsData(dispatch);
-    }, [dispatch])
+    const { cards: cardsData, filters } = useSelector(selectCardsData)
 
-    const { cards: cardsData } = useSelector(selectCardsData)
+    useEffect(() => {
+        getCardsData(dispatch, filters);
+    }, [dispatch, filters])
 
     return (
         <div className="main-container">
