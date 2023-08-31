@@ -27,9 +27,11 @@ export const GamePage = () => {
     const { id } = useParams()
     const dispatch = useDispatch()
 
+
     useEffect(() => {
         getGameData(id, dispatch)
     }, [dispatch, id])
+
 
     const gameData = useSelector(selectGameData)
     let formattedDate = ''

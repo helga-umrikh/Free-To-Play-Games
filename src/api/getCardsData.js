@@ -1,4 +1,4 @@
-
+import { setErrorData } from '../redux/slices/errorSlice'
 import { setCardsData } from '../redux/slices/cardsSlice'
 import axios from 'axios'
 
@@ -21,6 +21,6 @@ export const getCardsData = async (dispatch, filters) => {
         const response = responseData.data
         dispatch(setCardsData(response))
     } catch (error) {
-        throw new Error()
+        dispatch(setErrorData(error))
     }
 }

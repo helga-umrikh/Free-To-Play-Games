@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './MainPage.css'
@@ -23,7 +22,7 @@ export const MainPage = () => {
             <MainFilters />
 
             {cardsData ? (
-                <div className='main-container__content'>
+                <div className="main-container__content">
                     <Row
                         className="main-container__cards-box"
                         justify="space-evenly"
@@ -31,7 +30,15 @@ export const MainPage = () => {
                     >
                         {cardsData && renderCards(cardsData, limit)}
                     </Row>
-                    { limit < cardsData.length && <Button className='load-more-btn' type='primary' onClick={() => dispatch(updateLimit())}>Load more</Button>}
+                    {limit < cardsData.length && (
+                        <Button
+                            className="load-more-btn"
+                            type="primary"
+                            onClick={() => dispatch(updateLimit())}
+                        >
+                            Load more
+                        </Button>
+                    )}
                 </div>
             ) : (
                 <div className="example">

@@ -1,6 +1,7 @@
 import { setGameData } from '../redux/slices/gameSlice'
+import { setErrorData } from '../redux/slices/errorSlice'
 import axios from 'axios'
-// import { useNavigate } from 'react-router-dom'
+
 
 const getGameData = async (id, dispatch) => {
     const dataGame = JSON.parse(localStorage.getItem(`${id}`))
@@ -29,7 +30,7 @@ const getGameData = async (id, dispatch) => {
             )
             dispatch(setGameData(response.data))
         } catch (e) {
-            throw new Error(e.message)
+            dispatch(setErrorData(e))
         }
     }
     console.log(now.getTime())
@@ -46,7 +47,7 @@ const getGameData = async (id, dispatch) => {
             )
             dispatch(setGameData(response.data))
         } catch (e) {
-            throw new Error(e.message)
+            dispatch(setErrorData(e));
         }
     }
     if(dataGame) {
