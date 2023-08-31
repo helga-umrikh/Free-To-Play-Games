@@ -1,8 +1,8 @@
 import React from 'react'
 import { GameCard } from '../components/GameCard'
 
-export const renderCards = (cardsData) => {
-    const cards = cardsData.map(
+export const renderCards = (cardsData, limit) => {
+    const cards = cardsData.slice(0, limit).map(
         (
             { id, thumbnail, genre, release_date, title, developer },
             index

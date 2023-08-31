@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const cardsSlice = createSlice({
   name: 'cardsData',
   initialState: {
-    filters: {}
+    filters: {},
+    limit: 10,
   },
 
   reducers: {
@@ -17,6 +18,10 @@ export const cardsSlice = createSlice({
       }
 
       state.filters[type] = value
+      state.limit = 10;
+    },
+    updateLimit: (state) => {
+      state.limit = state.limit + 10;
     },
     resetFilterCardsData: state => {
       state.cards = null
@@ -25,7 +30,7 @@ export const cardsSlice = createSlice({
 });
 
 
-export const { setCardsData, filterCardsData } = cardsSlice.actions;
+export const { setCardsData, filterCardsData, updateLimit } = cardsSlice.actions;
 
 export const selectCardsData = state => {
   return state.cards
