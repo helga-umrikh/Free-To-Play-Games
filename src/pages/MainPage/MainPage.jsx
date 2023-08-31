@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './MainPage.css'
-import { Typography } from 'antd'
+import { Typography, Spin } from 'antd'
 import { Row } from 'antd'
 import { renderCards } from '../../utils/renderCards'
 import { MainFilters } from '../../components/MainFilters'
@@ -20,13 +20,20 @@ export const MainPage = () => {
         <div className="main-container">
             <Typography.Title>Free-To-Play Games </Typography.Title>
             <MainFilters />
-            <Row
-                className="main-container__cards-box"
-                justify="space-evenly"
-                gutter={16}
-            >
-                {cardsData && renderCards(cardsData)}
-            </Row>
+
+            {cardsData ? (
+                <Row
+                    className="main-container__cards-box"
+                    justify="space-evenly"
+                    gutter={16}
+                >
+                    {cardsData && renderCards(cardsData)}
+                </Row>
+            ) : (
+                <div className="example">
+                    <Spin className='spinner' size="large"/>
+                </div>
+            )}
         </div>
     )
 }
