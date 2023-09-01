@@ -13,7 +13,8 @@ const getGameData = async (id, dispatch) => {
         params: { id },
         headers: {
             'X-RapidAPI-Key':
-                '5d7372b571msh53bdd7c8ffafe77p1bb5e8jsn8dad5f0a1e21',
+                // eslint-disable-next-line no-undef
+                process.env.REACT_APP_ACCESS_KEY,
             'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com',
         },
     }
