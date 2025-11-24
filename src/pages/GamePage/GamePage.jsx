@@ -118,13 +118,15 @@ export const GamePage = () => {
                                 )
                             })}
                         </Carousel>
-                        <Button
-                            className="back-to-games-btn"
-                            type="primary"
-                            shape="round"
-                        >
-                            <Link to="/">BACK TO GAMES LIST</Link>
-                        </Button>
+                        <Link to="/">
+                            <Button
+                                className="back-to-games-btn"
+                                type="primary"
+                                shape="round"
+                            >
+                                BACK TO GAMES LIST
+                            </Button>
+                        </Link>
                     </>
                 ) : (
                     <Spin className="spinner" size="large" />
