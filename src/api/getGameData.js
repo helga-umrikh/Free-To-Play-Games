@@ -12,13 +12,11 @@ const getGameData = async (id, dispatch) => {
         url: 'https://free-to-play-games-database.p.rapidapi.com/api/game',
         params: { id },
         headers: {
-            'X-RapidAPI-Key':
-                // eslint-disable-next-line no-undef
-                process.env.REACT_APP_ACCESS_KEY,
-            'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com',
+            'x-rapidapi-key': process.env.REACT_APP_ACCESS_KEY,
+            'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com',
         },
     }
-
+    
     if (!dataGame) {
         try {
             const response = await axios.request(options)
@@ -34,7 +32,7 @@ const getGameData = async (id, dispatch) => {
             dispatch(setErrorData(e))
         }
     }
-    console.log(now.getTime())
+
 
     if (dataGame && now.getTime() > dataGame.expiry) {
         try {
