@@ -1,7 +1,7 @@
 {
   "name": "free-to-play-app",
   "version": "0.1.0",
-  "homepage": "https://helga-umrikh.github.io/Free-To-Play-Games/",
+  "homepage": "/Free-To-Play-Games",
   "private": true,
   "scripts": {
     "start": "set PORT=3001 && react-scripts start",
